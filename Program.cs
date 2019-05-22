@@ -15,7 +15,8 @@ namespace ContosoUniversity {
 
                 try {
                     var context = services.GetRequiredService<SchoolContext> ();
-                    context.Database.EnsureCreated ();
+                    // using ContosoUniversity.Data; 
+                    DbInitializer.Initialize (context);
                 } catch (Exception ex) {
                     var logger = services.GetRequiredService<ILogger<Program>> ();
                     logger.LogError (ex, "An error occurred creating the DB.");
