@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using ContosoUniversity.Models;
 
 namespace ContosoUniversity {
     public class Startup {
@@ -26,6 +28,9 @@ namespace ContosoUniversity {
             });
 
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
+
+    services.AddDbContext<SchoolContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
