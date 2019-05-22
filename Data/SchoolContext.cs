@@ -9,5 +9,7 @@ namespace ContosoUniversity.Models {
         public SchoolContext (DbContextOptions<SchoolContext> options) : base (options) { }
 
         public DbSet<ContosoUniversity.Models.Student> Student { get; set; }
+        public DbSet<Enrollment> Enrollment { get; set; }
+        public DbSet<Course> Course { get; set; }
     }
 }
